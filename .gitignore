@@ -1,0 +1,16 @@
+.env
+*.env
+.env.local
+workspace/*
+!workspace/.gitkeep
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+OKUBENI.md
+video3_aciklama.md
+video3_senaryo.md
+vasi_claude.py

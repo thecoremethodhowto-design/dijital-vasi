@@ -1,0 +1,27 @@
+services:
+  vasi-core:
+    build: .
+    container_name: vasi-sandbox-guard
+
+    # .env runtime'da okunur — image'a gömülmez
+    env_file: .env
+
+    volumes:
+      # Asistanın erişebildiği TEK klasör
+      - ./workspace:/app/workspace
+
+    extra_hosts:
+      # Docker içinden bilgisayardaki Ollama'ya erişim
+      - "host.docker.internal:host-gateway"
+
+    restart: unless-stopped
+
+    security_opt:
+      - no-new-privileges:true
+
+    # NOT: read_only kaldırıldı.
+    # Rapor/analiz/kod komutları workspace'e dosya yazdığı için
+    # read_only:true sistemi kırar. Güvenlik Docker izolasyonu
+    # ve safe_path() fonksiyonu ile sağlanıyor.
+    tmpfs:
+      - /tmp

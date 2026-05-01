@@ -1,0 +1,8 @@
+python-telegram-bot==21.0.1
+python-dotenv==1.0.1
+
+# Ollama (yerel modeller için)
+ollama==0.1.8
+
+# Claude API (PROVIDER=claude seçilirse gerekli)
+anthropic>=0.25.0
